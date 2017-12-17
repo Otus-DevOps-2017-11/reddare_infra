@@ -29,7 +29,7 @@ Host **internalhost**, internal IP:10.132.0.3
 -------------
 ## HOMEWORK 6
 
-gcgloud startup script metadata added:
+gcloud startup script metadata added:
 ```
 gcloud compute instances create reddit-app\       
   --boot-disk-size=10GB \
