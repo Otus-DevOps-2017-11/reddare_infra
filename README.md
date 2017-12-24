@@ -41,7 +41,7 @@ gcloud compute instances create reddit-app\
 --zone=europe-west3-b \
 --metadata "startup-script-url=https://storage.googleapis.com/reddare-infra/gcp_startup.sh"
 ```
-gcloud startup script
+gcloud startup script:
 ```
 #!/bin/sh
 
@@ -61,4 +61,20 @@ sudo systemctl enable mongod
 git clone https://github.com/Otus-DevOps-2017-11/reddit.git
 cd reddit && bundle install
 puma -d
+```
+
+-------------
+## HOMEWORK 7
+
+validate packer image:
+```
+packer validate -var-file=variables.json immutable.json
+```
+build packer image:
+```
+packer build -var-file=variables.json immutable.json
+```
+gcloud vm from packer image:
+```
+config-scripts/create-reddit-vm.sh
 ```
