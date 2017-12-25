@@ -1,10 +1,10 @@
 {
- "proj_id": "project_hw_07",
+ "proj_id": "otus-homework-project",
  "source_image_family": "ubuntu-1604-lts",
  "machine_type": "f1-micro",
- "image_description": "project_hw_07_image",
+ "image_description": "otus-homework-project-image",
  "disk_size": "10",
  "disk_type": "pd-standard",
  "network": "default",
- "tags": ["network_tag"]
+ "tags": "network-tag"
 }
