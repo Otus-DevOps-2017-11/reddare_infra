@@ -41,3 +41,19 @@ gcloud compute instances create reddit-app\
 --zone=europe-west3-b \
 --metadata-from-file startup-script=gcp_startup.sh
 ```
+
+-------------
+## HOMEWORK 7
+
+validate packer image:
+```
+packer validate -var-file=variables.json immutable.json
+```
+build packer image:
+```
+packer build -var-file=variables.json immutable.json
+```
+gcloud vm from packer image:
+```
+config-scripts/create-reddit-vm.sh
+```
