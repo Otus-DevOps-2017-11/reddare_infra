@@ -43,6 +43,22 @@ gcloud compute instances create reddit-app\
 ```
 
 -------------
+## HOMEWORK 7
+
+validate packer image:
+```
+packer validate -var-file=variables.json immutable.json
+```
+build packer image:
+```
+packer build -var-file=variables.json immutable.json
+```
+gcloud vm from packer image:
+```
+config-scripts/create-reddit-vm.sh
+```
+
+-------------
 ## HOMEWORK 8
 
 **task 1**
