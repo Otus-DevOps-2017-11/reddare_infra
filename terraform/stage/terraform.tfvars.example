@@ -1,0 +1,11 @@
+project = "otus-homework-project"
+
+public_key_path = "~/.ssh/appuser.pub"
+
+app_name = "stage-reddit-app"
+
+db_name = "stage-db-app"
+
+mongo_rule_name = "stage-allow-mongo"
+
+puma_rule_name = "stage-allow-puma"
