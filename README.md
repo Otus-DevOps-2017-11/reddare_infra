@@ -73,10 +73,42 @@ config-scripts/create-reddit-vm.sh
 
 -------------
 ## HOMEWORK 9
+<img align="left" src="./assets/terraform_tree.png?raw=true">
 
-<img align="left" style="padding-right: 30px" src="./assets/terraform_tree.png?raw=true">
-
-* Созданы 2 окружения: ***stage***; ***prod***;
+* Созданы 2 окружения: **stage**; **prod**;
 * Параметризированны конфигурации модулей
 * Конфигурационные файлы отформатированны 
 
+**Задание со звездочкой 1**
+* State перенесен в Google Cloud Storage 
+* Применить изменения с использованием:
+```
+terraform init -backend-config=backend.tfvars.example
+```
+**Задание со звездочкой 2**
+* Добавлен provisioner для деплоя приложения:
+```
+  provisioner "file" {
+    content     = "${data.template_file.pumaservice.rendered}"
+    destination = "/tmp/puma.service"
+  }
+
+  provisioner "remote-exec" {
+    script = "${path.module}/files/deploy.sh"
+  }
+```
+* Добавлен provisioner для конфигурации базы данных:
+```
+  provisioner "file" {
+    content     = "${data.template_file.mongod-config.rendered}"
+    destination = "/tmp/mongod.conf"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "sudo mv /tmp/mongod.conf /etc/mongod.conf",
+      "sudo systemctl restart mongod",
+    ]
+  }
+```
+* **Работа с реестром модулей также была произведена**
