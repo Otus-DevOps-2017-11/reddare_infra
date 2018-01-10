@@ -6,8 +6,9 @@ After=network.target
 Type=simple
 User=appuser
 WorkingDirectory=/home/appuser/reddit
-ExecStart=/bin/bash -lc 'DATABASE_URL=${mongodb} puma'
+ExecStart=/bin/bash -lc 'DATABASE_URL=${db_address} puma'
 Restart=always
 
 [Install]
 WantedBy=multi-user.target
+

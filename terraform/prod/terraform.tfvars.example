@@ -4,13 +4,13 @@ public_key_path = "~/.ssh/appuser.pub"
 
 private_key_path = "~/.ssh/appuser"
 
-app_name = "stage-reddit-app"
+app_name = "prod-reddit-app"
 
-db_name = "stage-db-app"
+db_name = "prod-db-app"
 
-mongo_rule_name = "stage-allow-mongo"
+mongo_rule_name = "prod-allow-mongo"
 
-puma_rule_name = "stage-allow-puma"
+puma_rule_name = "prod-allow-puma"
 
 app_disk_image = "reddit-app-base"
 

@@ -1,8 +1,8 @@
-data "template_file" "puma_service_template" {
+data "template_file" "pumaservice" {
   template = "${file("${path.module}/files/puma.service.tpl")}"
 
   vars {
-    mongodb = "${var.mongodb}"
+    db_address = "${var.db_address}"
   }
 }
 
@@ -30,10 +30,17 @@ resource "google_compute_instance" "app" {
     sshKeys = "appuser:${file(var.public_key_path)}"
   }
   
-  provisioner "file" {
-    content     = "${data.template_file.puma_service_template.rendered}"
-    destination = "/tmp/puma.service"
+  connection {
+    type        = "ssh"
+    user        = "appuser"
+    private_key = "${file(var.private_key_path)}"
   }
+
+
+provisioner "file" {
+    content     = "${data.template_file.pumaservice.rendered}"
+    destination = "/tmp/puma.service"
+}
 
   provisioner "remote-exec" {
     script = "${path.module}/files/deploy.sh"

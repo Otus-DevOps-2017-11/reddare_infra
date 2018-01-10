@@ -1,3 +1,11 @@
+data "template_file" "mongod-config" {
+  template = "${file("${path.module}/files/mongod.conf.tpl")}"
+
+  vars {
+    mongo_ip = "0.0.0.0"
+  }
+}
+
 resource "google_compute_instance" "db" {
   name         = "${var.db_name}"
   machine_type = "g1-small"
@@ -17,6 +25,24 @@ resource "google_compute_instance" "db" {
 
   metadata {
     sshKeys = "appuser:${file(var.public_key_path)}"
+  }
+connection {
+    type        = "ssh"
+    user        = "appuser"
+    agent       = false
+    private_key = "${file("${var.private_key_path}")}"
+  }
+
+  provisioner "file" {
+    content     = "${data.template_file.mongod-config.rendered}"
+    destination = "/tmp/mongod.conf"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "sudo mv /tmp/mongod.conf /etc/mongod.conf",
+      "sudo systemctl restart mongod",
+    ]
   }
 }
 

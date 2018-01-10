@@ -1,5 +1,3 @@
-reddare_infra
-##### Anton Olifir
 -------------
 ## HOMEWORK 5
 
@@ -72,3 +70,6 @@ config-scripts/create-reddit-vm.sh
 **task 2**
 - в конфиг main.tf добавлено описание ко второй задаче со звездочкой
 - в конфиг outputs.tf добавлен вывод всех необходимых условий
+
+-------------
+## HOMEWORK 9
