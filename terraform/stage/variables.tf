@@ -43,4 +43,3 @@ variable db_name {
 variable mongo_rule_name {
   description = "Mongo allow rule name"
 }
-
