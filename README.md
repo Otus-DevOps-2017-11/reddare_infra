@@ -74,7 +74,7 @@ config-scripts/create-reddit-vm.sh
 -------------
 ## HOMEWORK 9
 
-<img align="left" src="./assets/terraform_tree.png?raw=true">
+<img align="left" style="padding-right: 30px" src="./assets/terraform_tree.png?raw=true">
 
 * Созданы 2 окружения: ***stage***; ***prod***;
 * Параметризированны конфигурации модулей
