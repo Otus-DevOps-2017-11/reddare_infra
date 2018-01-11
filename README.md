@@ -115,8 +115,6 @@ terraform init -backend-config=backend.tfvars.example
 
 -------------
 ## HOMEWORK 10
- 
-* Добавлено домашнее задание 10 в директории **ansible**
 
 **Задание со звездочкой**
 
@@ -129,7 +127,6 @@ ansible all -i inventory.py -m ping
 Был успешно нагуглен python сценарий, который в этом очень помог.
 
 Также необходимо добавить модуль **[inventory]** в ansible.cfg:
-
 ```
 [inventory]
 enable_plugins = host_list, script, yaml, ini
