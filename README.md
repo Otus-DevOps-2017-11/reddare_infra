@@ -112,3 +112,22 @@ terraform init -backend-config=backend.tfvars.example
   }
 ```
 * **Работа с реестром модулей также была произведена**
+
+-------------
+## HOMEWORK 10
+
+**Задание со звездочкой**
+
+<img align="right" src="./assets/ansible_inventory.gif?raw=true">
+Так как ansible не принимает напрямую JSON в аргумент inventory, необходимо использовать скрипт, который передаст необходимые значения в JSON формате.
+
+```
+ansible all -i inventory.py -m ping
+```
+Был успешно нагуглен python сценарий, который в этом очень помог.
+
+Также необходимо добавить модуль **[inventory]** в ansible.cfg:
+```
+[inventory]
+enable_plugins = host_list, script, yaml, ini
+```
