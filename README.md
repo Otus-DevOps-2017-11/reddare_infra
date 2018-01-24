@@ -120,7 +120,7 @@ terraform init -backend-config=backend.tfvars.example
 
 **Задание со звездочкой**
 
-<img align="right" src="./assets/ansible_inventory?raw=true">
+<img align="right" src="./assets/ansible_inventory.gif?raw=true">
 Так как ansible не принимает напрямую JSON в аргумент inventory, необходимо использовать скрипт, который передаст необходимые значения в JSON формате.
 ```
 ansible all -i inventory.py -m ping
@@ -132,3 +132,24 @@ ansible all -i inventory.py -m ping
 [inventory]
 enable_plugins = host_list, script, yaml, ini
 ```
+-------------
+## HOMEWORK 11
+
+* Добавлено домашнее задание 11 в директории **ansible**
+
+**Задание со звездочкой**
+<img align="left" src="./assets/ansible_inventory_2.png?raw=true">
+Была произведена работа с Dynamic Inventory с использованием сценария **gce.py**.
+
+Сценарий и ini файл с настройками находятся в каталоге **ansible/gce**.
+
+Были созданы альтернатиные файлы конфигурации для ansible c перфиксом **gce_**.
+
+Ansible использует теги gce для работы с хостами, которые получает из сценария.
+
+Для запуска сценария используется команда:
+```
+ansible-playbook -i gce/gce.py gce_site.yml
+```
+
+
