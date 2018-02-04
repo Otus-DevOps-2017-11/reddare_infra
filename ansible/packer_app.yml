@@ -1,0 +1,20 @@
+---
+- name: Install Ruby and Bundler
+  hosts: all 
+  become: true
+  tasks:
+    - name: Install Ruby
+      apt:
+        name: ruby-full
+        state: present
+        update_cache: yes
+    - name: Install Bundler
+      apt:
+        name: ruby-bundler
+        state: present
+        update_cache: yes
+    - name: Install build-essential
+      apt:
+        name: build-essential
+        state: present
+        update_cache: yes
