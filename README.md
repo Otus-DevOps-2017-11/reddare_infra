@@ -148,4 +148,8 @@ Ansible использует теги gce для работы с хостами,
 ansible-playbook -i gce/gce.py site.yml
 ```
 
+-------------
+## HOMEWORK 12
+
+* Добавлено домашнее задание 12 в директории **ansible**
 
